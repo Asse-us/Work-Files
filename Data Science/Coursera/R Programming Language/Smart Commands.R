@@ -14,3 +14,6 @@ colName <- fullColName[match(outcome,validOutcome)]
 # More flexible ways of subsetting these get the subset of the data with the desired state
 new_data <- subset(data, State == state) # new_data  <- data[data$State == state]
 
+# How to update same dataset after changing the values.
+new_data[, outcome_column] <- as.numeric(new_data[,outcome_column])
+
