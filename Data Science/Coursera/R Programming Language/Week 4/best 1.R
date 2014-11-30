@@ -1,6 +1,6 @@
 best <- function(state, outcome) {
   ## Read outcome data
-  data  <- read.csv("outcome-of-care-measures.csv", as.is = TRUE, na.strings="Not Available")
+  data  <- read.csv("outcome-of-care-measures.csv", na.strings="Not Available")
   
   ## Check that state and outcome are valid
   is.valid.state  <- validateValue("State", state,data)
@@ -17,44 +17,22 @@ best <- function(state, outcome) {
     stop("Invalid Outcome")  
   }
   
-  #print("Printing Column Name")
-  #print(Column.name)
-  
-  ## Return hospital name in that state with lowest 30-day death
-  
+  # Cleaning Data
   state.Data  <- data[(data["State"] == state),]
   
   final.Data  <- state.Data[!(state.Data[Column.name] == "Not Available"),]
   
-  final.Data  <- state.Data[!is.na(state.Data[Column.name]),]
+  final.Data  <- final.Data[!is.na(final.Data[Column.name]),]
   
   Column.Data  <- final.Data[,Column.name]
   
+  # Caculating minimum mortaility
+  min.Mortaility  <- sort(Column.Data)[1]  
   
-  
-  #print("Printing Head for Column data")
-  
-  #print("------------------Column Data ------------------")  
-  #print(Column.Data)
-  
-  #print("------------------Printing sorted data------------------")
-  #sortedColumn  <- sort(Column.Data)
-  
-  #print(sort(Column.Data))
-  
-  
-  min.Mortaility  <- sort(Column.Data)[1]
-  
-  #print("Printing min.Mortaility")
-  
-  #print(min.Mortaility)
-  
+  # Finding all hospitals with this mortaility
   All.Hospitals.With.Min.Mortaility  <- final.Data[final.Data[Column.name] == as.character(min.Mortaility),"Hospital.Name"]
   
-  #print("Printing All.Hospitals.With.Min.Mortaility")
-  
-  #print(sort(All.Hospitals.With.Min.Mortaility))
-  
+  # Returing the first hospital after sorting the list of all hospitals
   sort(All.Hospitals.With.Min.Mortaility)[1]
   
 }

@@ -1,12 +1,12 @@
 best <- function(state, outcome) {
   ## Read outcome data
-  data  <- read.csv("outcome-of-care-measures.csv")
+  data  <- read.csv("outcome-of-care-measures.csv", na.strings="Not Available")
   
   ## Check that state and outcome are valid
   is.valid.state  <- validateValue("State", state,data)
   if (is.valid.state == FALSE) 
   {
-    return stop("Invalid State") 
+    stop("Invalid State") 
   }
   
   
@@ -14,57 +14,62 @@ best <- function(state, outcome) {
   # Find whether this value is valid or not
   if (Column.name == "Invalid Column") 
   {
-    return stop("Invalid Outcome")  
+    stop("Invalid Outcome")  
   }
   
-  ## Return hospital name in that state with lowest 30-day death
-  Column.Data  <- data[[Column.name]]
+  # Cleaning Data
+  state.Data  <- data[(data["State"] == state),]
   
-  min.Mortaility  <- min(data[[Column.name]])
+  final.Data  <- state.Data[!(state.Data[Column.name] == "Not Available"),]
   
-  All.Hospitals.With.Min.Mortaility  <- data[data[[Column.name]] == min.Mortaility,"Hospital.Name"]
+  final.Data  <- final.Data[!is.na(final.Data[Column.name]),]
   
-  return sort(All.Hospitals.With.Min.Mortaility)[1]
+  Column.Data  <- final.Data[,Column.name]
+  
+  # Caculating minimum mortaility
+  min.Mortaility  <- sort(Column.Data)[1]  
+  
+  # Finding all hospitals with this mortaility
+  All.Hospitals.With.Min.Mortaility  <- final.Data[final.Data[Column.name] == as.character(min.Mortaility),"Hospital.Name"]
+  
+  # Returing the first hospital after sorting the list of all hospitals
+  sort(All.Hospitals.With.Min.Mortaility)[1]
   
 }
 
-function validateColumn (variable) 
-{
-  # Get the variable Column name
-  Column.name  <- getColumnName(variable)
-  
-  # Find whether this value is valid or not
-  if (Column.name == "Invalid Column")
-  {
-    return FALSE
-  }
-} 
-
-function getColumnName(variable) 
+getColumnName  <- function (variable) 
 {
   lower.Mortality  <- "Lower.Mortality.Estimate...Hospital.30.Day.Death..Mortality..Rates.from."
   
-  if (grepl(variable, "Pneumonia")) 
+  lower.Mortality  <- "Hospital.30.Day.Death..Mortality..Rates.from."
+  
+  variable  <- tolower(variable)
+  
+  #print(variable)
+  
+  if (variable == "pneumonia")
   {
-    return (paste(lower.Mortality, variable))
+    lower.Mortality  <-  paste(lower.Mortality, "Pneumonia" ,sep = "", collapse = "")
   }  
-  else if (grepl(variable, "Attack"))
+  else if (variable =="heart attack")
   {  
-    return (paste(lower.Mortality, "Heart.Attack")
+    lower.Mortality  <-  paste(lower.Mortality, "Heart.Attack",sep = "", collapse = "")
   }
-  else if (grepl(variable, "Failure"))
+  else if (variable == "heart failure")
   {
-    return (paste(lower.Mortality, "Heart.Failure")
+    lower.Mortality  <-  paste(lower.Mortality,  "Heart.Failure",sep = "", collapse = "")
   }
   else
   {
-    return ("Invalid Column")
+    lower.Mortality  <-  "Invalid Column"
   }  
   
-  return ("Invalid Column")
+  #print(lower.Mortality)
+  lower.Mortality
 }
 
-function validateValue( Column.name, variable.Value, data) 
+
+validateValue  <- function ( Column.name, variable.Value, data) 
 {
   
   is.Valid  <- TRUE
