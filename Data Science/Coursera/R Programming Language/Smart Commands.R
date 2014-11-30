@@ -10,3 +10,7 @@ validState = unique(myData[,7])
 ## convert outcome name into column name
 fullColName <- c("Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack", "Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure", "Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia")
 colName <- fullColName[match(outcome,validOutcome)]
+
+# More flexible ways of subsetting these get the subset of the data with the desired state
+new_data <- subset(data, State == state) # new_data  <- data[data$State == state]
+
