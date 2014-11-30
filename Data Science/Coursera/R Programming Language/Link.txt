@@ -11,3 +11,44 @@ http://cran.r-project.org/doc/contrib/Rossiter-RIntro-ITC.pdf
 
 An Introduction to R
 http://cran.r-project.org/doc/manuals/R-intro.pdf 
+
+The Art of R Programming: A Tour of Statistical Software Design
+http://www.amazon.com/The-Art-Programming-Statistical-Software/dp/1593273843/ref=pd_sim_b_6?ie=UTF8&refRID=1M8S5H3PHMD63FKYM77D
+
+R in Action
+http://www.amazon.com/R-Action-Robert-Kabacoff/dp/1935182390/ref=pd_sim_b_12?ie=UTF8&refRID=1X8JFZ8FXNFF3KV1DXXX
+
+R Cookbook (O'Reilly Cookbooks)
+http://www.amazon.com/Cookbook-OReilly-Cookbooks-Paul-Teetor/dp/0596809158/ref=pd_sim_b_4?ie=UTF8&refRID=1M8S5H3PHMD63FKYM77D
+
+R for Everyone: Advanced Analytics and Graphics (Addison-Wesley Data & Analytics Series)
+http://www.amazon.com/Everyone-Advanced-Analytics-Graphics-Addison-Wesley/dp/0321888030/ref=pd_sim_b_1?ie=UTF8&refRID=1M8S5H3PHMD63FKYM77D
+
+An Introduction to Statistical Learning: with Applications in R 
+http://www.amazon.com/Introduction-Statistical-Learning-Applications-Statistics/dp/1461471370/ref=pd_sim_b_6?ie=UTF8&refRID=1GTFSXNNBDYXHGTJ2DS0
+
+Applied Predictive Modeling
+http://www.amazon.com/Applied-Predictive-Modeling-Max-Kuhn/dp/1461468485/ref=pd_sim_b_1?ie=UTF8&refRID=0EYB9BDJEXSDKFSR1VGZ
+
+Machine Learning with R
+http://www.amazon.com/Machine-Learning-R-Brett-Lantz/dp/1782162143/ref=pd_sim_b_4?ie=UTF8&refRID=1GTFSXNNBDYXHGTJ2DS0
+
+* Practical Data Science with R
+http://www.amazon.com/Practical-Data-Science-Nina-Zumel/dp/1617291560/ref=pd_sim_b_2?ie=UTF8&refRID=1CMSZY90GD0R609AX40S
+
+* Data Science for Business: What you need to know about data mining and data-analytic thinking
+http://www.amazon.com/Data-Science-Business-data-analytic-thinking/dp/1449361323/ref=pd_sim_b_17?ie=UTF8&refRID=1X8JFZ8FXNFF3KV1DXXX
+
+
+Doing Data Science: Straight Talk from the Frontline
+http://www.amazon.com/Doing-Data-Science-Straight-Frontline/dp/1449358659/ref=pd_sim_b_10?ie=UTF8&refRID=1X8JFZ8FXNFF3KV1DXXX
+
+Practical Data Science Cookbook
+http://www.amazon.com/Practical-Data-Science-Cookbook-Ojeda/dp/1783980249/ref=pd_sim_b_13?ie=UTF8&refRID=1X8JFZ8FXNFF3KV1DXXX
+
+Data Smart: Using Data Science to Transform Information into Insight
+http://www.amazon.com/Data-Smart-Science-Transform-Information/dp/111866146X/ref=pd_sim_b_18?ie=UTF8&refRID=1X8JFZ8FXNFF3KV1DXXX
+
+Mining the Social Web: Data Mining Facebook, Twitter, LinkedIn, Google+, GitHub, and More
+http://www.amazon.com/Mining-Social-Web-Facebook-LinkedIn/dp/1449367615/ref=pd_sim_b_26?ie=UTF8&refRID=1X8JFZ8FXNFF3KV1DXXX
+
