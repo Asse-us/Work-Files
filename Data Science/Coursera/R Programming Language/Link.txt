@@ -1,0 +1,13 @@
+Quick Links
+
+Using R for Data Analysis and Graphics
+http://cran.r-project.org/doc/contrib/usingR.pdf
+
+The R Guide 
+http://cran.r-project.org/doc/contrib/Owen-TheRGuide.pdf
+
+Introduction to the R Project for Statistical Computing for use at ITC
+http://cran.r-project.org/doc/contrib/Rossiter-RIntro-ITC.pdf 
+
+An Introduction to R
+http://cran.r-project.org/doc/manuals/R-intro.pdf 
