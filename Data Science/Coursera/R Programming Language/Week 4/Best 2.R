@@ -19,3 +19,4 @@ best <- function(state, outcome) {
   idx <- which.min(as.double(data.state[,colName]))
   data.state[idx,"Hospital.Name"]
 }
+# https://github.com/jiversen/Assignment3/blob/master/rankall.R
