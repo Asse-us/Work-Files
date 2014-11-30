@@ -17,3 +17,7 @@ new_data <- subset(data, State == state) # new_data  <- data[data$State == state
 # How to update same dataset after changing the values.
 new_data[, outcome_column] <- as.numeric(new_data[,outcome_column])
 
+# How to get index from any dataframe.
+index <- with(desired_data, order(desired_data[outcome_column_name], desired_data[hospital_column_name]))
+ordered_desired_data <- desired_data[index, ]
+
