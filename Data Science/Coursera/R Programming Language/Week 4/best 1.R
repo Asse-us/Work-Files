@@ -86,3 +86,6 @@ validateValue  <- function ( Column.name, variable.Value, data)
   
   is.Valid
 }
+
+# Another interesting ways to get the answer of above problem
+https://github.com/muntasir2165/R-Programming-Assignments-1--2--and-3-/blob/master/Programming%20Assignment%203%20-%20Hospital%20Quality/best.R
