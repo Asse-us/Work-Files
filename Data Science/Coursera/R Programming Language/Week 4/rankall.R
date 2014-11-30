@@ -3,21 +3,15 @@ rankall <- function(outcome, num = "best") {
         data <- read.csv("outcome-of-care-measures.csv", colClasses = "character",na.strings="Not Available")
         
         ## Check that state and outcome are valid
-        is.valid.state  <- validateValue("State", state,data)
-        if (is.valid.state == FALSE) 
-        {
-                stop("Invalid State") 
-        }
+        validOutcome = c("heart attack","heart failure","pneumonia")
+        if (!outcome %in% validOutcome) { stop("invalid outcome")}
         
+        validState = sort(unique(data[,7]))
+        if (!state %in% validState) stop("invalid state")
         
-        Column.name  <- getColumnName(outcome)  
-        # Find whether this value is valid or not
-        if (Column.name == "Invalid Column") 
-        {
-                stop("Invalid Outcome")  
-        }        
-        
-        colName <- Column.name
+        ## convert outcome name into column name
+        fullColName <- c("Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack", "Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure", "Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia")
+        colName <- fullColName[match(outcome,validOutcome)]
         
         ## For each state, find the hospital of the given rank
         hospital<-character(0)
@@ -39,54 +33,4 @@ rankall <- function(outcome, num = "best") {
         
         ## Return a data frame with the hospital names and the (abbreviated) state name
         data.frame(hospital=hospital,state=validState,row.names=validState)
-}
-
-getColumnName  <- function (variable) 
-{
-        lower.Mortality  <- "Lower.Mortality.Estimate...Hospital.30.Day.Death..Mortality..Rates.from."
-        
-        lower.Mortality  <- "Hospital.30.Day.Death..Mortality..Rates.from."
-        
-        variable  <- tolower(variable)
-        
-        #print(variable)
-        
-        if (variable == "pneumonia")
-        {
-                lower.Mortality  <-  paste(lower.Mortality, "Pneumonia" ,sep = "", collapse = "")
-        }  
-        else if (variable =="heart attack")
-        {  
-                lower.Mortality  <-  paste(lower.Mortality, "Heart.Attack",sep = "", collapse = "")
-        }
-        else if (variable == "heart failure")
-        {
-                lower.Mortality  <-  paste(lower.Mortality,  "Heart.Failure",sep = "", collapse = "")
-        }
-        else
-        {
-                lower.Mortality  <-  "Invalid Column"
-        }  
-        
-        #print(lower.Mortality)
-        lower.Mortality
-}
-
-
-validateValue  <- function ( Column.name, variable.Value, data) 
-{
-        
-        is.Valid  <- TRUE
-        
-        Column.Data  <- data[[Column.name]]
-        actual.variable.Value  <- Column.Data[Column.Data == variable.Value]
-        
-        length.actual.variable.Value  <- length(actual.variable.Value)
-        
-        if (length.actual.variable.Value < 1) 
-        {
-                is.Valid  <- FALSE
-        }
-        
-        is.Valid
 }
