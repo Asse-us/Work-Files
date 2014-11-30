@@ -33,7 +33,7 @@ best <- function(state, outcome) {
   All.Hospitals.With.Min.Mortaility  <- final.Data[final.Data[Column.name] == as.character(min.Mortaility),"Hospital.Name"]
   
   # Returing the first hospital after sorting the list of all hospitals
-  sort(All.Hospitals.With.Min.Mortaility)[1]
+  as.character(sort(All.Hospitals.With.Min.Mortaility)[1])
   
 }
 
